@@ -1,0 +1,132 @@
+:root {
+  --body_bg: #1a1a1a;
+  --preloader_bg: rgba(10, 16, 31, 0.7);
+  --scrollbar_thumb_color: #282d3a;
+  --block_bg: #141b2e;
+  --block_color: #fff;
+  --scrollbar_block_color: #282d3a;
+  --main_color: #1c1b1b;
+  --main_gradient: linear-gradient(to right bottom, #1c1b1b, #1c1b1b);
+  --main_shadow: #083f92;
+  --link_color: #1c1b1b;
+  --text_color: #ffffff;
+  --h1_color: #ffffff;
+  --h2_color: #ffffff;
+  --h3_color: #ffffff;
+  --hide_color: #34415f;
+
+  --input_bg: #1f2941;
+  --input_color: #fff;
+
+  --btn_auth_bg: linear-gradient(70deg, #31bc69 -8%, #089e4e 96%);
+  --btn_reg_bg: linear-gradient(70deg, #15c3ed -8%, #0b6ecd 96%);
+  --btn_reg_color: #ffffff;
+
+  --lang_color: #ffffff;
+
+  --menu_bg: #262626;
+  --menu_mobile_bg: #262626;
+  --menu_color: #fff;
+
+  --checkbox_on_bg: #1c1b1b;
+  --checkbox_of_bg: #d3d7e0;
+
+  --mobile_balance_bg: #212b46;
+  --mobile_bonus_bg: #212b46;
+
+  --error_data_bg: #e3e5eb;
+  --error_data_color: #4c4c4c;
+
+  --footer_bg: #151515;
+  --footer_link_color: #ffffff;
+  --footer_seporator_bg: linear-gradient(
+    90deg,
+    hsla(0, 0%, 100%, 0.2) 29.12%,
+    hsla(0, 0%, 100%, 0)
+  );
+  --side_seporator_bg: linear-gradient(
+    90deg,
+    hsla(0, 0%, 100%, 0.2) 29.12%,
+    hsla(0, 0%, 100%, 0)
+  );
+  --company_color: #ffffff;
+  --copyright_color: #b3bac6;
+
+  --history_tr_bg: #eceef3;
+  --history_tr_bg_2: #e6e7ee;
+  --history_tr_cause_bg: rgba(255, 255, 255, 0.3);
+  --history_tr_color: #000000;
+  --history_tr_fill: #494949;
+
+  --status_0_bg: #ff4949;
+  --status_0_color: #ffffff;
+  --status_1_bg: #089e4e;
+  --status_1_color: #ffffff;
+  --status_2_bg: #18283f;
+  --status_2_color: #ffffff;
+
+  --main_width: 1800px;
+  --main_radius: 7px;
+  --radius_modal: 15px;
+  --radius_input: 11px;
+  --logo_width: auto;
+  --logo_height: 39px;
+  --logo_mobile_width: auto;
+  --logo_mobile_height: 39px;
+
+  --casino_menu_first: linear-gradient(
+    250deg,
+    #26223c,
+    rgba(255, 23, 183, 0.4) 84%,
+    #4b2b66
+  );
+  --casino_menu_second: linear-gradient(
+    250deg,
+    #1c2837,
+    rgba(0, 168, 88, 0.3) 84%,
+    #194353
+  );
+  --casino_menu_border: 1px solid rgba(38, 46, 72, 0.5);
+  --casino_menu_color: #ffffff;
+  --casino_menu_hover: rgba(38, 46, 72, 0.5);
+  --casino_menu_active: linear-gradient(260deg, #00ff86, #00a858 48%, #00a858);
+  --casino_error_bg: #141b2e;
+  --casino_error_color: #fff;
+  --casino_head_color: #fff;
+  --casino_game_bg: #141b2e;
+  --casino_game_radius: 9px;
+  --casino_play_bg: linear-gradient(to bottom right, #1c1b1b, #0563eb);
+  --casino_play_color: #fff;
+  --casino_play_hover: rgba(10, 16, 31, 0.45);
+  --casino_interface_color: #1c1b1b;
+
+  --jackpot_border: 2px solid #c5991e;
+  --jackpot_radius: 15px;
+  --jackpot_bg: rgba(9, 15, 31, 0.35);
+  --jackpot_shadow: inset 0 0px 25px #090f1f;
+  --jackpot_color: #fff;
+  --jackpot_color_2: #c5991e;
+
+  --slider_bg: linear-gradient(110deg, #1c1b1b, #1c1b1b 100%);
+  --slider_nav_color: #1c1b1b;
+
+  --sidebar_bg: rgba(37, 46, 76, 0.98);
+
+  --home_bonus_width: 265px;
+  --home_bonus_padding: 20px;
+  --home_bonus_bg: #747df5;
+
+  --block_line_bg: #1c1b1b;
+  --block_line_radius: 5px;
+
+  --home_line_bg: linear-gradient(340deg, #232323, #232323 100%);
+  --home_line_color: #fff;
+
+  --home_casino_bg: linear-gradient(340deg, #232323, #232323 100%);
+  --home_casino_color: #fff;
+
+  --dash_coupon: linear-gradient(to right bottom, #1c1b1b, #1c1b1b);
+  --dash_coupon_shadow: #083f92;
+  --dash_coupon_count: #b80023;
+  --dash_coupon_count_color: #fff;
+}

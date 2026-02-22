@@ -1,0 +1,163 @@
+side {
+  position: fixed;
+  height: 100%;
+  width: 300px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  -ms-scroll-chaining: none;
+  overscroll-behavior: contain;
+  z-index: 99999;
+  background: rgba(37, 46, 76, 0.98);
+  transition: transform 0.3s ease-in-out;
+}
+side > div {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+side > div::-webkit-scrollbar {
+  width: 4px;
+}
+side > div::-webkit-scrollbar-track {
+  background: (0, 0, 0, 0);
+  border-radius: 0;
+}
+side > div::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  border: 0 solid rgba(0, 0, 0, 0);
+  background-color: #505462;
+}
+side::before {
+  content: "";
+  position: absolute;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+side[data-side="left"] {
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+  border-radius: 0 20px 20px 0;
+}
+side[data-side="left"]::before {
+  top: calc(50% - 17.5px);
+  right: 7px;
+  width: 3.5px;
+  height: 35px;
+}
+side[data-side="left"] > div {
+  margin: 0 23px 0 15px;
+  width: calc(100% - 38px);
+  height: 100%;
+}
+
+side[data-side="right"] {
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+  border-radius: 20px 0 0 20px;
+}
+side[data-side="right"]::before {
+  top: calc(50% - 17.5px);
+  left: 7px;
+  width: 3.5px;
+  height: 35px;
+}
+side[data-side="right"] > div {
+  margin: 0 15px 0 23px;
+  width: calc(100% - 38px);
+  height: 100%;
+}
+
+side[data-side="top"] {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  transform: translateY(-100%);
+  border-radius: 0 0 20px 20px;
+}
+side[data-side="top"]::before {
+  bottom: 7px;
+  left: calc(50% - 17.5px);
+  width: 35px;
+  height: 3.5px;
+}
+side[data-side="top"] > div {
+  margin: 0 15px 23px 15px;
+  width: calc(100% - 30px);
+  height: calc(100% - 23px);
+}
+
+side[data-side="bottom"] {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  transform: translateY(100%);
+  border-radius: 20px 20px 0 0;
+}
+side[data-side="bottom"]::before {
+  top: 7px;
+  left: calc(50% - 17.5px);
+  width: 35px;
+  height: 3.5px;
+}
+side[data-side="bottom"] > div {
+  margin: 23px 15px 0 15px;
+  width: calc(100% - 30x);
+  height: calc(100% - 23px);
+}
+
+@media (max-width: 500px) {
+  side[data-side="left"],
+  side[data-side="right"] {
+    width: 65%;
+  }
+  side[data-side="top"],
+  side[data-side="bottom"] {
+    height: 80%;
+  }
+}
+
+.side_active[data-side="right"],
+.side_active[data-side="left"] {
+  transform: translateX(0%);
+}
+.side_active[data-side="top"],
+.side_active[data-side="bottom"] {
+  transform: translateY(0%);
+}
+
+.backblur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99998;
+  -webkit-backdrop-filter: blur(0px) brightness(100%);
+  backdrop-filter: blur(0px) brightness(100%);
+  animation: backblur_animation 0.3s linear;
+  animation-fill-mode: forwards;
+}
+@keyframes backblur_animation {
+  from {
+    -webkit-backdrop-filter: blur(0px) brightness(100%);
+    backdrop-filter: blur(0px) brightness(100%);
+  }
+  to {
+    -webkit-backdrop-filter: blur(7px) brightness(115%);
+    backdrop-filter: blur(7px) brightness(115%);
+  }
+}
+@keyframes backblur_animation_end {
+  from {
+    -webkit-backdrop-filter: blur(7px) brightness(115%);
+    backdrop-filter: blur(7px) brightness(115%);
+  }
+  to {
+    -webkit-backdrop-filter: blur(0px) brightness(100%);
+    backdrop-filter: blur(0px) brightness(100%);
+  }
+}

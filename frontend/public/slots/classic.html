@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Classic Slot</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #12080a;
+        --panel: rgba(18, 10, 10, 0.92);
+        --accent: #ff9a3c;
+        --accent-2: #ff5a3d;
+        --icon-size: 72px;
+        --icon-gap: 8px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at 18% 10%, rgba(255, 140, 60, 0.25), transparent 45%),
+          radial-gradient(circle at 80% 16%, rgba(255, 80, 50, 0.22), transparent 48%),
+          linear-gradient(180deg, #2a0d0b 0%, #12080a 65%);
+        color: #ffe9d2;
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+      }
+
+      .frame {
+        width: min(940px, 96vw);
+        border-radius: 18px;
+        background: linear-gradient(180deg, rgba(42, 14, 12, 0.96), rgba(12, 8, 10, 0.94));
+        border: 1px solid rgba(255, 120, 60, 0.35);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 45px rgba(255, 90, 50, 0.35);
+        padding: 18px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .frame::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at top, rgba(255, 120, 60, 0.25), transparent 55%);
+        opacity: 0.9;
+        pointer-events: none;
+      }
+
+      .frame::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.06) 50%, transparent 100%);
+        opacity: 0.7;
+        animation: shimmer 6s infinite linear;
+        pointer-events: none;
+      }
+
+      .bulbs {
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        top: 10px;
+        display: flex;
+        justify-content: space-between;
+        pointer-events: none;
+      }
+
+      .bulb {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #fff1df 0%, #ff9a3c 55%, #b6402a 100%);
+        box-shadow: 0 0 12px rgba(255, 120, 60, 0.9);
+        animation: blink 1.4s ease-in-out infinite;
+      }
+
+      .bulb:nth-child(odd) {
+        animation-delay: 0.2s;
+      }
+
+      .bolts {
+        position: absolute;
+        inset: 8px;
+        pointer-events: none;
+      }
+
+      .bolt {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #ffe6cf 0%, #ff9a3c 60%, #b6402a 100%);
+        box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.35);
+      }
+
+      .bolt.b1 { top: 8px; left: 8px; }
+      .bolt.b2 { top: 8px; right: 8px; }
+      .bolt.b3 { bottom: 8px; left: 8px; }
+      .bolt.b4 { bottom: 8px; right: 8px; }
+
+      .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+
+      .title span {
+        color: var(--accent);
+      }
+
+      .vulkan-brand {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 8px;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        text-shadow: 0 0 18px rgba(255, 100, 60, 0.6);
+      }
+
+      .vulkan-brand__name {
+        background: linear-gradient(180deg, #ffbf74 0%, #ff6a46 100%);
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+
+      .vulkan-brand__digits {
+        color: #ffe0bc;
+        border: 1px solid rgba(255, 120, 60, 0.6);
+        padding: 2px 8px;
+        border-radius: 999px;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.45), 0 0 10px rgba(255, 120, 60, 0.5);
+      }
+
+      .reels {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+      }
+
+      .reel-window {
+        padding: 10px;
+        border-radius: 14px;
+        background: linear-gradient(180deg, rgba(255, 120, 60, 0.2), rgba(12, 8, 10, 0.92));
+        border: 1px solid rgba(255, 120, 60, 0.4);
+        box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 90, 50, 0.35);
+      }
+
+      .reel {
+        background: var(--panel);
+        border-radius: 14px;
+        border: 1px solid rgba(255, 120, 60, 0.35);
+        overflow: hidden;
+        height: calc((var(--icon-size) + var(--icon-gap)) * 3 + 16px);
+        padding: 8px 0;
+        position: relative;
+      }
+
+      .icons {
+        position: relative;
+        display: grid;
+        gap: var(--icon-gap);
+        padding: 0 8px;
+      }
+
+      .icons img {
+        width: 100%;
+        height: var(--icon-size);
+        object-fit: contain;
+        background: linear-gradient(150deg, rgba(255, 140, 60, 0.25), rgba(255, 80, 50, 0.2));
+        border-radius: 12px;
+        padding: 10px;
+        border: 1px solid rgba(255, 120, 60, 0.35);
+        box-shadow: 0 8px 16px rgba(255, 90, 50, 0.25);
+      }
+
+      .icons img.win {
+        border-color: rgba(255, 255, 255, 0.7);
+        box-shadow: 0 0 16px rgba(255, 150, 90, 0.9), 0 0 28px rgba(255, 80, 50, 0.7);
+      }
+
+      .lights {
+        display: grid;
+        grid-auto-flow: column;
+        gap: 8px;
+        justify-content: center;
+        margin-top: 12px;
+      }
+
+      .lights span {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 10px rgba(255, 120, 60, 0.55);
+        animation: blink 1.2s infinite ease-in-out;
+      }
+
+      .lights span:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      .lights span:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+
+      .lights span:nth-child(4) {
+        animation-delay: 0.6s;
+      }
+
+      .win-overlay {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+
+      .win-overlay.show {
+        opacity: 1;
+      }
+
+      .win-line {
+        position: absolute;
+        left: 12px;
+        right: 12px;
+        height: 4px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, transparent, #ffe2c2, transparent);
+        box-shadow: 0 0 16px rgba(255, 120, 60, 0.8);
+        opacity: 0.9;
+      }
+
+      .sparkles span {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #ffe2c2, transparent 60%);
+        animation: sparkle 1.1s ease-out forwards;
+      }
+
+      .win-lines {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      @keyframes sparkle {
+        0% {
+          transform: scale(0.6);
+          opacity: 0.8;
+        }
+        100% {
+          transform: translateY(-40px) scale(1.4);
+          opacity: 0;
+        }
+      }
+
+      @keyframes shimmer {
+        0% {
+          transform: translateX(-40%);
+        }
+        100% {
+          transform: translateX(40%);
+        }
+      }
+
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 0.4;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <div class="bulbs">
+        <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+        <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+        <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+      </div>
+      <div class="bolts">
+        <span class="bolt b1"></span>
+        <span class="bolt b2"></span>
+        <span class="bolt b3"></span>
+        <span class="bolt b4"></span>
+      </div>
+      <div class="vulkan-brand">
+        <span class="vulkan-brand__name">Vulkan</span>
+        <span class="vulkan-brand__digits">777</span>
+      </div>
+      <div class="title">Classic Gold <span>777</span></div>
+      <div class="reel-window">
+        <div class="reels" id="reels"></div>
+      </div>
+      <div class="win-overlay" id="winOverlay">
+        <div class="win-lines" id="winLines"></div>
+        <div class="sparkles" id="sparkles"></div>
+      </div>
+      <div class="lights">
+        <span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <script>
+      const state = {
+        symbols: [],
+        reelCount: 3,
+        ready: false,
+      };
+
+      const reelsRoot = document.getElementById("reels");
+      const winOverlay = document.getElementById("winOverlay");
+      const winLines = document.getElementById("winLines");
+      const sparkles = document.getElementById("sparkles");
+      let audioCtx;
+      let reelStrips = [];
+
+      const randomSymbol = () =>
+        state.symbols[Math.floor(Math.random() * state.symbols.length)];
+
+      const shuffle = (list) => {
+        for (let i = list.length - 1; i > 0; i -= 1) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [list[i], list[j]] = [list[j], list[i]];
+        }
+        return list;
+      };
+
+      const buildReelStrips = () => {
+        const images = state.symbols.map((symbol) => symbol.image).filter(Boolean);
+        reelStrips = Array.from({ length: state.reelCount }, () =>
+          shuffle([...images])
+        );
+      };
+
+      const currentStripIndex = (strip, icons) => {
+        const currentSrc = icons.querySelector("img")?.src || "";
+        if (!currentSrc || !strip.length) return 0;
+        const index = strip.findIndex((img) => currentSrc.includes(img));
+        return index >= 0 ? index : 0;
+      };
+
+      const createIcon = (image) => {
+        const img = document.createElement("img");
+        img.src = image || "";
+        img.alt = "slot";
+        return img;
+      };
+
+      const buildReels = () => {
+        buildReelStrips();
+        reelsRoot.innerHTML = "";
+        for (let i = 0; i < state.reelCount; i += 1) {
+          const reel = document.createElement("div");
+          reel.className = "reel";
+          const icons = document.createElement("div");
+          icons.className = "icons";
+          for (let j = 0; j < 3; j += 1) {
+            const strip = reelStrips[i] || [];
+            const image = strip[j % strip.length];
+            if (image) icons.appendChild(createIcon(image));
+          }
+          reel.appendChild(icons);
+          reelsRoot.appendChild(reel);
+        }
+      };
+
+      const ensureAudio = () => {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === "suspended") {
+          audioCtx.resume().catch(() => undefined);
+        }
+        return audioCtx;
+      };
+
+      const playTone = (freq, duration, when, gain = 0.06) => {
+        const ctx = ensureAudio();
+        if (!ctx) return;
+        const osc = ctx.createOscillator();
+        const amp = ctx.createGain();
+        osc.type = "square";
+        osc.frequency.value = freq;
+        amp.gain.value = gain;
+        osc.connect(amp).connect(ctx.destination);
+        osc.start(ctx.currentTime + when);
+        osc.stop(ctx.currentTime + when + duration);
+      };
+
+      const playSpinSound = () => {
+        const ctx = ensureAudio();
+        if (!ctx) return;
+        const now = ctx.currentTime;
+        const hum = ctx.createOscillator();
+        const humGain = ctx.createGain();
+        hum.type = "triangle";
+        hum.frequency.value = 85;
+        humGain.gain.value = 0.02;
+        hum.connect(humGain).connect(ctx.destination);
+        hum.start(now);
+        hum.stop(now + 0.9);
+        for (let i = 0; i < 12; i += 1) {
+          playTone(560 + (i % 3) * 40, 0.035, 0.05 + i * 0.06, 0.03);
+        }
+      };
+
+      const playStopSound = () => {
+        playTone(180, 0.05, 0, 0.05);
+        playTone(240, 0.03, 0.02, 0.04);
+      };
+
+      const playWinSound = () => {
+        playTone(620, 0.12, 0, 0.08);
+        playTone(920, 0.18, 0.12, 0.08);
+      };
+
+      const clearWin = () => {
+        winOverlay.classList.remove("show");
+        sparkles.innerHTML = "";
+        winLines.innerHTML = "";
+        reelsRoot.querySelectorAll(".icons img.win").forEach((el) => el.classList.remove("win"));
+      };
+
+      const lineTop = (lineIndex = 1) => {
+        const style = getComputedStyle(document.documentElement);
+        const size = parseFloat(style.getPropertyValue("--icon-size")) || 72;
+        const gap = parseFloat(style.getPropertyValue("--icon-gap")) || 8;
+        return 8 + lineIndex * (size + gap) + size / 2 - 2;
+      };
+
+      const triggerWin = (lines = [1]) => {
+        winOverlay.classList.add("show");
+        lines.forEach((lineIndex) => {
+          const line = document.createElement("div");
+          line.className = "win-line";
+          line.style.top = `${lineTop(lineIndex)}px`;
+          winLines.appendChild(line);
+        });
+        reelsRoot.querySelectorAll(".reel").forEach((reel) => {
+          const icons = reel.querySelectorAll(".icons img");
+          lines.forEach((lineIndex) => {
+            if (icons[lineIndex]) icons[lineIndex].classList.add("win");
+          });
+        });
+        for (let i = 0; i < 24; i += 1) {
+          const span = document.createElement("span");
+          span.style.left = `${Math.random() * 96 + 2}%`;
+          span.style.top = `${Math.random() * 70 + 10}%`;
+          span.style.animationDelay = `${Math.random() * 0.3}s`;
+          sparkles.appendChild(span);
+        }
+        playWinSound();
+        setTimeout(clearWin, 1300);
+      };
+
+      const spinReel = (reel, images, delay, reelIndex) =>
+        new Promise((resolve) => {
+          const icons = reel.querySelector(".icons");
+          const style = getComputedStyle(document.documentElement);
+          const size = parseFloat(style.getPropertyValue("--icon-size")) || 72;
+          const gap = parseFloat(style.getPropertyValue("--icon-gap")) || 8;
+          const loop = 26 + Math.floor(Math.random() * 8);
+          const distance = loop * (size + gap);
+          const extraDelay = Math.floor(Math.random() * 420);
+          const duration = 3400 + extraDelay;
+          const strip = reelStrips[reelIndex] || [];
+          const start = currentStripIndex(strip, icons);
+          for (let i = 0; i < loop + 3; i += 1) {
+            const image = i >= loop ? images[i - loop] : strip[(start + i) % strip.length];
+            if (image) icons.appendChild(createIcon(image));
+          }
+          const animation = icons.animate(
+            [{ transform: "translateY(0)" }, { transform: `translateY(-${distance}px)` }],
+            { duration: duration + delay, easing: "ease-in-out" }
+          );
+          animation.onfinish = () => {
+            const extra = icons.children.length - 3;
+            for (let i = 0; i < extra; i += 1) icons.firstChild.remove();
+            playStopSound();
+            resolve();
+          };
+        });
+
+      const spin = (reelImages) => {
+        const reels = Array.from(reelsRoot.children);
+        return Promise.all(
+          reels.map((reel, index) =>
+            spinReel(reel, reelImages[index] || [], index * 120, index)
+          )
+        );
+      };
+
+      window.addEventListener("message", (event) => {
+        if (!event.data || typeof event.data !== "object") return;
+        if (event.data.type === "init") {
+          state.symbols = event.data.symbols || [];
+          state.reelCount = event.data.reelCount || 3;
+          buildReels();
+          state.ready = true;
+          window.parent.postMessage({ type: "ready" }, window.location.origin);
+        }
+        if (event.data.type === "spin" && state.ready) {
+          clearWin();
+          playSpinSound();
+          spin(event.data.reels || []).then(() => {
+            if (event.data.win) {
+              triggerWin(Array.isArray(event.data.lines) ? event.data.lines : [1]);
+            }
+            window.parent.postMessage({ type: "spinComplete" }, window.location.origin);
+          });
+        }
+      });
+
+      window.parent.postMessage({ type: "ready" }, window.location.origin);
+    </script>
+  </body>
+</html>

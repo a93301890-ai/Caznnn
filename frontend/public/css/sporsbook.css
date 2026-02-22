@@ -1,0 +1,168 @@
+div.betcore-container {
+  /*общие цвета*/
+  --preloader-background-color: #1a1a1a; /*фон прелоадера*/
+
+  --container-background-color: #1a1a1a; /*Цвет блока с линией*/
+
+  --primary-background-color: #262626; /*основной цвет блоков*/
+  --primary-text-color: #fff;
+
+  --secondary-background-color: #181818; /*вторичный цвет блоков*/
+  --secondary-text-color: #fff;
+
+  --tertiary-background-color: #edf2ff; /*третичный цвет блоков*/
+  --tertiary-text-color: #000;
+
+  --blur-background-color: var(
+    --primary-background-color
+  ); /*цвет блюра (по умолчанию дефолт цвет сайта). если цвет градиент, то заменить значение на статичный цвет*/
+  --gray-text-color1: #9196a4; /*серый цвет (для описаний и т.д.)*/
+
+  --primary-gradient-background-color1: #232323; /*первый цвет основного градиента*/
+  --primary-gradient-background-color2: #1c1b1b; /*второй цвет основного градиента*/
+  --primary-gradient-text-color: #fff; /*цвет текста основного градиента*/
+
+  --scrollbar-track-background-color: #141b2e;
+  --scrollbar-thumb-background-color: #282d3a;
+
+  --secondary-gradient-background-color1: #0b6ecd; /*первый цвет вторичного градиента*/
+  --secondary-gradient-background-color2: #15c3ed; /*второй цвет вторичного градиента*/
+  --secondary-gradient-text-color: #fff; /*цвет текста вторичного градиента*/
+
+  --skeleton-gradient-background-color1: #1c2438; /*второй цвет градиента скелетона*/
+  --skeleton-gradient-background-color2: #202b45; /*второй цвет градиента скелетона*/
+
+  --icon-background-color: #232323; /*цвет фона у иконок в меню*/
+
+  --primary-active-background-color: #232323; /*основной цвет выбранного элемента*/
+  --primary-active-text-color: #fff;
+
+  --primary-seperator-background-color: #e4e8f5; /*основной цвет разделителя между элементами*/
+  --secondary-seperator-background-color: #40475d; /*вторичный цвет разделителя между элементами*/
+
+  --line-background-color: #232323; /*цвет Line*/
+  --line-text-color: #fff;
+
+  --live-background-color: #e92541; /*цвет Live*/
+  --live-text-color: #fff;
+
+  --vs-background-color: #232323;
+  /*ставки*/
+  --player1-text-color: #3da5ff; /*цвет первого игрока*/
+  --player2-text-color: #93c738; /*цвет первого игрока*/
+
+  --primary-odd-background-color: #d0daf3; /*основной цвет коэфициента*/
+  --primary-odd-text-color: #151515;
+  --primary-odd-active-background-color: #c4f027; /*основной активный цвет коэфициента*/
+  --primary-odd-active-text-color: #000;
+  --primary-odd-empty-background-color: #e7edfc; /*основной цвет пустого коэфициента*/
+
+  --secondary-odd-background-color: #2d3750; /*вторичный цвет коэфициента*/
+  --secondary-odd-text-color: #fff;
+  --secondary-odd-active-background-color: #c4f027; /*вторичный активный цвет коэфициента*/
+  --secondary-odd-active-text-color: #000;
+  --secondary-odd-empty-background-color: #263048; /*вторичный цвет пустого коэфициента*/
+
+  --collection-background-color: #d6dcec; /*задний цвет коллекций*/
+
+  --coupon-bet-background-color: #fff; /*цвет ставки в купоне*/
+  --coupon-bet-text-color: #000; /*
+
+	/*элементы интерфейса*/
+  --tab-active-background-color: #232323; /*цвет активной вкладки*/
+  --tab-active-text-color: #fff;
+
+  --input-background-color: #1a1a1a; /*цвет инпута*/
+  --input-active-background-color: #1a1a1a; /*цвет активного инпута*/
+  --input-text-color: #fff;
+
+  --dropdown-background-color: #1a1a1a; /*цвет выпадающего меню*/
+  --dropdown-active-background-color: #1a1a1a; /*цвет активного выпадающего меню*/
+  --dropdown-text-color: #fff;
+  --dropdown-content-background-color: #fff; /*цвет содержимого выпадающего меню*/
+  --dropdown-content-active-background-color: #e9e9e9; /*цвет активного элемента в содержимом выпадающего меню*/
+  --dropdown-content-text-color: #000;
+
+  --selector-active-background-color: #2196f3; /*цвет активного селектора (свитч)*/
+  --selector-disabled-background-color: #ccc; /*цвет деактивированного селектора (свитч)*/
+
+  --primary-button-background-color: #232323; /*основной цвет кнопки*/
+  --primary-button-text-color: #fff;
+
+  --secondary-button-background-color: #1a1a1a; /*вторичный цвет кнопки*/
+  --secondary-button-text-color: #fff;
+
+  --tertiary-button-background-color: #ffe036; /*третичный цвет кнопки*/
+  --tertiary-button-text-color: #000;
+
+  --gradient-button-background-color1: #232323; /*первый цвет градиентной кнопки*/
+  --gradient-button-background-color2: #242424; /*второй цвет градиентной кнопки*/
+  --gradient-button-text-color: #fff;
+
+  /*радиусы*/
+  --small-border-radius: 4px; /*маленький радиус*/
+  --default-border-radius: 8px; /*основной радиус*/
+  --big-border-radius: 15px; /*большой радиус*/
+
+  /*размеры блоков*/
+  --left_panel-size: 270px;
+  --right_panel-size: 300px;
+  --container-height: 100vh;
+  --top-margin: 10px;
+
+  /*то что в целом не должно меняться*/
+  --event-text-color: #fff;
+  --disabled-background-color: rgba(20, 27, 46, 0.7);
+
+  --gradient-button-background: linear-gradient(
+    103deg,
+    var(--gradient-button-background-color1) -30%,
+    var(--gradient-button-background-color2)
+  );
+  --primary-gradient-background: linear-gradient(
+    110deg,
+    var(--primary-gradient-background-color1),
+    var(--primary-gradient-background-color2) 100%
+  );
+  --secondary-gradient-background: linear-gradient(
+    103deg,
+    var(--secondary-gradient-background-color1) -30%,
+    var(--secondary-gradient-background-color2)
+  );
+  --skeleton-gradient-background: linear-gradient(
+      to left,
+      var(--skeleton-gradient-background-color1) 0%,
+      var(--skeleton-gradient-background-color2) 30%,
+      var(--skeleton-gradient-background-color1) 60%,
+      var(--skeleton-gradient-background-color1) 100%
+    )
+    var(--skeleton-gradient-background-color1);
+
+  --error-background-color: #e13434;
+  --error-text-color: #fff;
+  --success-background-color: #3a974d;
+  --success-text-color: #fff;
+
+  --transparent-background-color: rgba(255, 255, 255, 0.1);
+  --transparent-text-color: #fff;
+
+  --coupon_close-color: #000;
+  --coupon_disabled_close-color: #fff;
+
+  --coupon_possible_win-color: var(--dark_mint_green);
+
+  --modals-zIndex: 99993;
+}
+
+div.betcore-container {
+  padding: 0;
+}
+
+div.betcore-container .layout {
+  padding: 0;
+}
+
+div.betcore-container .mobile-layout {
+  padding: 10px 0 0 0;
+  color: #fff;
+}

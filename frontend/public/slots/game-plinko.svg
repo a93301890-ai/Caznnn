@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="360" viewBox="0 0 600 360">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#a05bff"/>
+      <stop offset="100%" stop-color="#6c7bff"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" rx="28" fill="url(#bg)"/>
+  <rect x="20" y="20" width="560" height="320" rx="22" fill="rgba(0,0,0,0.25)"/>
+  <g fill="#ffffff" opacity="0.8">
+    <circle cx="380" cy="90" r="6"/>
+    <circle cx="420" cy="110" r="6"/>
+    <circle cx="460" cy="90" r="6"/>
+    <circle cx="400" cy="140" r="6"/>
+    <circle cx="440" cy="160" r="6"/>
+  </g>
+  <circle cx="430" cy="200" r="16" fill="#ffe6ff"/>
+  <rect x="360" y="230" width="140" height="60" rx="12" fill="rgba(0,0,0,0.35)"/>
+  <rect x="368" y="238" width="24" height="44" rx="6" fill="#ffce7a"/>
+  <rect x="396" y="238" width="24" height="44" rx="6" fill="#8ef0ff"/>
+  <rect x="424" y="238" width="24" height="44" rx="6" fill="#c4b3ff"/>
+  <rect x="452" y="238" width="24" height="44" rx="6" fill="#ffd3f0"/>
+  <text x="60" y="210" fill="#ffffff" font-size="58" font-family="Segoe UI, Arial, sans-serif" font-weight="700">
+    PLINKO
+  </text>
+</svg>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vulkan Wheel</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --rim: #ffb04a;
+        --lava: #ff5a3d;
+        --panel: rgba(12, 8, 10, 0.92);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at 20% 10%, rgba(255, 140, 60, 0.28), transparent 45%),
+          radial-gradient(circle at 80% 20%, rgba(255, 80, 50, 0.25), transparent 48%),
+          linear-gradient(180deg, #2a0d0b 0%, #12080a 65%);
+        color: #ffe9d2;
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+      }
+
+      .frame {
+        width: min(560px, 90vw);
+        border-radius: 18px;
+        background: linear-gradient(180deg, rgba(42, 14, 12, 0.96), rgba(12, 8, 10, 0.94));
+        border: 2px solid rgba(255, 120, 60, 0.55);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 45px rgba(255, 90, 50, 0.35);
+        padding: 18px 22px 26px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .title {
+        text-align: center;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        background: linear-gradient(180deg, #ffbf74 0%, #ff6a46 100%);
+        -webkit-background-clip: text;
+        color: transparent;
+        margin: 6px 0 14px;
+      }
+
+      .subtitle {
+        text-align: center;
+        font-size: 12px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: #ffe2c2;
+        margin-bottom: 16px;
+      }
+
+      .wheel-wrap {
+        display: grid;
+        place-items: center;
+        padding: 12px 0 6px;
+      }
+
+      .pointer {
+        width: 0;
+        height: 0;
+        border-left: 16px solid transparent;
+        border-right: 16px solid transparent;
+        border-bottom: 28px solid #ffe2c2;
+        filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.45));
+        margin-bottom: -6px;
+        z-index: 2;
+      }
+
+      .wheel {
+        width: min(260px, 64vw);
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        border: 10px solid rgba(255, 120, 60, 0.6);
+        background:
+          conic-gradient(
+            #3a1412 0deg 30deg,
+            #7a2a1e 30deg 60deg,
+            #b8442c 60deg 90deg,
+            #ffb04a 90deg 120deg,
+            #ff6a46 120deg 150deg,
+            #7a2a1e 150deg 180deg,
+            #3a1412 180deg 210deg,
+            #7a2a1e 210deg 240deg,
+            #b8442c 240deg 270deg,
+            #ffb04a 270deg 300deg,
+            #ff6a46 300deg 330deg,
+            #7a2a1e 330deg 360deg
+          );
+        box-shadow:
+          inset 0 0 30px rgba(0, 0, 0, 0.6),
+          0 0 30px rgba(255, 90, 50, 0.35);
+        position: relative;
+        transition: transform 4s cubic-bezier(0.15, 0.8, 0.2, 1);
+      }
+
+      .wheel::after {
+        content: "";
+        position: absolute;
+        inset: 18%;
+        border-radius: 50%;
+        background: radial-gradient(circle, #1a0c0c 0%, #0b0f14 70%);
+        border: 6px solid rgba(255, 120, 60, 0.5);
+        box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.6);
+      }
+
+      .hub {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        pointer-events: none;
+      }
+
+      .hub span {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #ffb04a 0%, #b6402a 70%);
+        border: 4px solid rgba(255, 230, 200, 0.8);
+        box-shadow: 0 0 18px rgba(255, 120, 60, 0.65);
+      }
+
+      .glow {
+        position: absolute;
+        inset: -8px;
+        border-radius: 22px;
+        border: 1px solid rgba(255, 120, 60, 0.25);
+        pointer-events: none;
+      }
+
+      .note {
+        text-align: center;
+        font-size: 12px;
+        color: #ffe2c2;
+        margin-top: 16px;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <div class="glow"></div>
+      <div class="title">Vulkan</div>
+      <div class="subtitle">Grand Wheel</div>
+      <div class="wheel-wrap">
+        <div class="pointer"></div>
+        <div class="wheel" id="wheel">
+          <div class="hub"><span></span></div>
+        </div>
+      </div>
+      <div class="note">Amazing Features</div>
+    </div>
+    <script>
+      const wheel = document.getElementById("wheel");
+      let angle = 0;
+
+      const spinWheel = (win) => {
+        const extra = 1080 + Math.random() * 720;
+        angle = (angle + extra) % 360;
+        wheel.style.transform = `rotate(${angle + (win ? 20 : 0)}deg)`;
+      };
+
+      window.addEventListener("message", (event) => {
+        if (!event.data || typeof event.data !== "object") return;
+        if (event.data.type === "init") {
+          window.parent.postMessage({ type: "ready" }, window.location.origin);
+        }
+        if (event.data.type === "spin") {
+          spinWheel(!!event.data.win);
+          setTimeout(() => {
+            window.parent.postMessage({ type: "spinComplete" }, window.location.origin);
+          }, 4200);
+        }
+      });
+
+      window.parent.postMessage({ type: "ready" }, window.location.origin);
+    </script>
+  </body>
+</html>

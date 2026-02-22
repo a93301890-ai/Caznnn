@@ -1,0 +1,13 @@
+Запуск (разработка)
+npm install
+npm run dev
+Открыть: http://0.0.0.0:5173 (или http://localhost:5173)
+
+Сборка
+npm run build
+npm run preview
+Открыть: http://0.0.0.0:4173 (или http://localhost:4173)
+
+Структура
+public — статика (css, js, img)
+src — Vue приложение и роуты

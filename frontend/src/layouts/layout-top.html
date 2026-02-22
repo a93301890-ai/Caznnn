@@ -1,0 +1,420 @@
+<div class="pageloader">
+    <img src="/img/main/preloader_1673440671_8604.svg">
+  </div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="reg" class="modal">
+		<div class="modal_head">
+			<div>Регистрация</div>
+			<a href="#" rel="modal:close"></a>
+		</div>
+		
+		<div class="modal_content">
+
+			<form method="post" id="reg_form">
+				<input type="text" name="name" placeholder="Фамилия Имя" required="">
+				
+				<input type="hidden" name="phone" id="full_number">
+				<div class="phonePluginReg">
+					<input type="text" name="tel_show" id="phonelib" style="width:100%;" required="">
+				</div>
+
+											<select name="curr">
+								<option value="0">Выберите валюту</option>
+																		<option value="RUB">RUB</option>
+																			<option value="UAH">UAH</option>
+																			<option value="USD">USD</option>
+																			<option value="KZT">KZT</option>
+																			<option value="EUR">EUR</option>
+																			<option value="NGN">NGN</option>
+																			<option value="UZS">UZS</option>
+																</select>
+										
+				<input type="email" name="email" placeholder="Эл. почта" required="">
+
+				
+				<input type="password" name="pass" id="password" placeholder="Пароль" required="">
+
+				<input type="text" name="promo" placeholder="Введите промокод" style="display: none;">
+
+				<div style="height: 5px;"></div>
+
+				<div class="regRules">
+					<div>
+						<input name="have_promo" value="1" type="checkbox" class="checkbox" id="have_promo" onchange="change_reg_promo();">
+						<label for="have_promo"></label>
+					</div>
+					<div>У меня есть промокод</div>
+				</div>
+
+				<div class="regRules">
+					<div>
+						<input name="rules" value="1" type="checkbox" class="checkbox" id="rules" required="">
+						<label for="rules"></label>
+					</div>
+					<div>Я прочитал и принял <a href="/terms">положения и условия</a></div>
+				</div>
+
+				<div class="regRules">
+					<div>
+						<input name="yersold" value="1" type="checkbox" class="checkbox" id="yersold" required="">
+						<label for="yersold"></label>
+					</div>
+					<div>Мне уже есть 18 лет или больше</div>
+				</div>
+
+				<div class="notifications"></div>
+				<button type="submit">Регистрация</button>
+			</form>
+			
+			<div class="auth_offer">
+				Уже есть аккаунт? <a href="#auth" class="modal_link">Войти</a>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+	<div id="auth" class="modal">
+		<div class="modal_head">
+			<div>Вход</div>
+			<a href="#" rel="modal:close"></a>
+		</div>
+		
+		<div class="modal_content">
+			<form method="post" id="auth_form">
+				<input type="text" name="email" placeholder="Логин / эл. почта" required="">
+				<input type="password" name="pass" placeholder="Пароль" required="">
+				<div class="auth_forgot">
+					<a href="#forgot" class="modal_link">Забыли пароль?</a>
+				</div>
+				<div class="notifications"></div>
+				<button type="submit">Войти</button>
+			</form>
+
+			<div class="auth_offer">
+				Ещё нет аккаунта? <a href="#reg" class="modal_link">Зарегистрируйтесь</a>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+	<div id="forgot" class="modal">
+		<div class="modal_head">
+			<div>Восстановление пароля</div>
+			<a href="#" rel="modal:close"></a>
+		</div>
+		
+		<div class="modal_content">
+			<form method="post" id="forgot_form">
+				<input type="email" name="email" placeholder="Эл. почта" required="">
+				<div class="notifications"></div>
+				<button type="submit">Отправить</button>
+			</form>
+
+			<div class="auth_offer">
+				Вспомнили пароль? <a href="#auth" class="modal_link">Войти</a>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+	<div id="free_money" class="modal">
+		<div class="modal_head">
+			<div>Получи бонус</div>
+			<a href="#" rel="modal:close"></a>
+		</div>
+		
+		<div class="modal_content">
+					</div>
+	</div>
+
+
+
+
+<div class="page">
+    <div class="header">
+
+    <div class="menu_add">
+
+                    <a href="/account" class="for_auth free_money desktop">
+                <div>Получи бонус</div>
+                <div><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512" aria-hidden="true" role="img" class="icon icon-arrow-right FreeMoneyLink_arrow_cMaRG" size="9" icon="arrow-right" style="--vicon-with-gradient-problem__size:9px;"><path d="M218.101 38.101L198.302 57.9c-4.686 4.686-4.686 12.284 0 16.971L353.432 230H12c-6.627 0-12 5.373-12 12v28c0 6.627 5.373 12 12 12h341.432l-155.13 155.13c-4.686 4.686-4.686 12.284 0 16.971l19.799 19.799c4.686 4.686 12.284 4.686 16.971 0l209.414-209.414c4.686-4.686 4.686-12.284 0-16.971L235.071 38.101c-4.686-4.687-12.284-4.687-16.97 0z"></path></svg></div>
+            </a>
+        
+        <a href="/" class="logo mobile"><img src="/img/main/logo_1713400676_8420.png" alt=""></a>
+
+        <div class="space"></div>
+        
+        <div class="dropdown">
+            <div class="dropbtn">
+                <div class="drop_lang_btn">
+                    <div>ru</div>
+                    <div><img src="/img/lang/ru.jpg"></div>
+                </div>
+            </div>
+            <div class="dropdown-content">
+                <div class="drop_lang">
+                                                <a href="/privacy-policy" onclick="$.cookie('lang', 'en', {expires: 365, path: '/'});" class="">
+                                <div><img src="/img/lang/en.jpg"></div>
+                                <div>en</div>
+                            </a>
+                                                        <a href="/privacy-policy" onclick="$.cookie('lang', 'ru', {expires: 365, path: '/'});" class="">
+                                <div><img src="/img/lang/ru.jpg"></div>
+                                <div>ru</div>
+                            </a>
+                                                        <a href="/privacy-policy" onclick="$.cookie('lang', 'uk', {expires: 365, path: '/'});" class="">
+                                <div><img src="/img/lang/uk.jpg"></div>
+                                <div>uk</div>
+                            </a>
+                                                        <a href="/privacy-policy" onclick="$.cookie('lang', 'kz', {expires: 365, path: '/'});" class="">
+                                <div><img src="/img/lang/kz.jpg"></div>
+                                <div>kz</div>
+                            </a>
+                                                        <a href="/privacy-policy" onclick="$.cookie('lang', 'de', {expires: 365, path: '/'});" class="">
+                                <div><img src="/img/lang/de.jpg"></div>
+                                <div>de</div>
+                            </a>
+                                                        <a href="/privacy-policy" onclick="$.cookie('lang', 'fr', {expires: 365, path: '/'});" class="">
+                                <div><img src="/img/lang/fr.jpg"></div>
+                                <div>fr</div>
+                            </a>
+                                                        <a href="/privacy-policy" onclick="$.cookie('lang', 'ind', {expires: 365, path: '/'});" class="">
+                                <div><img src="/img/lang/ind.jpg"></div>
+                                <div>ind</div>
+                            </a>
+                                                        <a href="/privacy-policy" onclick="$.cookie('lang', 'pt', {expires: 365, path: '/'});" class="">
+                                <div><img src="/img/lang/pt.jpg"></div>
+                                <div>pt</div>
+                            </a>
+                                                        <a href="/privacy-policy" onclick="$.cookie('lang', 'cn', {expires: 365, path: '/'});" class="">
+                                <div><img src="/img/lang/cn.jpg"></div>
+                                <div>cn</div>
+                            </a>
+                                                        <a href="/privacy-policy" onclick="$.cookie('lang', 'bg', {expires: 365, path: '/'});" class="">
+                                <div><img src="/img/lang/bg.jpg"></div>
+                                <div>bg</div>
+                            </a>
+                                                        <a href="/privacy-policy" onclick="$.cookie('lang', 'hu', {expires: 365, path: '/'});" class="">
+                                <div><img src="/img/lang/hu.jpg"></div>
+                                <div>hu</div>
+                            </a>
+                                                        <a href="/privacy-policy" onclick="$.cookie('lang', 'el', {expires: 365, path: '/'});" class="">
+                                <div><img src="/img/lang/el.jpg"></div>
+                                <div>el</div>
+                            </a>
+                                                        <a href="/privacy-policy" onclick="$.cookie('lang', 'iw', {expires: 365, path: '/'});" class="">
+                                <div><img src="/img/lang/iw.jpg"></div>
+                                <div>iw</div>
+                            </a>
+                                                        <a href="/privacy-policy" onclick="$.cookie('lang', 'lv', {expires: 365, path: '/'});" class="">
+                                <div><img src="/img/lang/lv.jpg"></div>
+                                <div>lv</div>
+                            </a>
+                                                        <a href="/privacy-policy" onclick="$.cookie('lang', 'lt', {expires: 365, path: '/'});" class="">
+                                <div><img src="/img/lang/lt.jpg"></div>
+                                <div>lt</div>
+                            </a>
+                                                        <a href="/privacy-policy" onclick="$.cookie('lang', 'nl', {expires: 365, path: '/'});" class="">
+                                <div><img src="/img/lang/nl.jpg"></div>
+                                <div>nl</div>
+                            </a>
+                                                        <a href="/privacy-policy" onclick="$.cookie('lang', 'ro', {expires: 365, path: '/'});" class="">
+                                <div><img src="/img/lang/ro.jpg"></div>
+                                <div>ro</div>
+                            </a>
+                                                        <a href="/privacy-policy" onclick="$.cookie('lang', 'tr', {expires: 365, path: '/'});" class="">
+                                <div><img src="/img/lang/tr.jpg"></div>
+                                <div>tr</div>
+                            </a>
+                                                        <a href="/privacy-policy" onclick="$.cookie('lang', 'fi', {expires: 365, path: '/'});" class="">
+                                <div><img src="/img/lang/fi.jpg"></div>
+                                <div>fi</div>
+                            </a>
+                                                        <a href="/privacy-policy" onclick="$.cookie('lang', 'cs', {expires: 365, path: '/'});" class="">
+                                <div><img src="/img/lang/cs.jpg"></div>
+                                <div>cs</div>
+                            </a>
+                                                        <a href="/privacy-policy" onclick="$.cookie('lang', 'sv', {expires: 365, path: '/'});" class="">
+                                <div><img src="/img/lang/sv.jpg"></div>
+                                <div>sv</div>
+                            </a>
+                                                        <a href="/privacy-policy" onclick="$.cookie('lang', 'et', {expires: 365, path: '/'});" class="">
+                                <div><img src="/img/lang/et.jpg"></div>
+                                <div>et</div>
+                            </a>
+                                                        <a href="/privacy-policy" onclick="$.cookie('lang', 'ja', {expires: 365, path: '/'});" class="">
+                                <div><img src="/img/lang/ja.jpg"></div>
+                                <div>ja</div>
+                            </a>
+                                                        <a href="/privacy-policy" onclick="$.cookie('lang', 'it', {expires: 365, path: '/'});" class="">
+                                <div><img src="/img/lang/it.jpg"></div>
+                                <div>it</div>
+                            </a>
+                                                        <a href="/privacy-policy" onclick="$.cookie('lang', 'es', {expires: 365, path: '/'});" class="">
+                                <div><img src="/img/lang/es.jpg"></div>
+                                <div>es</div>
+                            </a>
+                                                        <a href="/privacy-policy" onclick="$.cookie('lang', 'pl', {expires: 365, path: '/'});" class="">
+                                <div><img src="/img/lang/pl.jpg"></div>
+                                <div>pl</div>
+                            </a>
+                                            </div>
+            </div>
+        </div>
+
+        <a href="#side_menu" class="burger sidebar mobile">
+            <svg data-v-5d560be8="" xmlns="http://www.w3.org/2000/svg" width="21" height="19" viewbox="0 0 21 19" aria-hidden="true" role="img" class="burger-menu-button__icon icon icon-burger_icon sm" icon="burger_icon"><path d="M19.5 16a1.5 1.5 0 010 3h-18a1.5 1.5 0 010-3h18zm0-8a1.5 1.5 0 010 3h-18a1.5 1.5 0 010-3h18zm0-8a1.5 1.5 0 010 3h-18a1.5 1.5 0 010-3h18z" fill-rule="evenodd"></path></svg>
+        </a>
+    </div>
+
+
+
+    <div class="menu desktop">
+        <a href="/" class="logo"><img src="/img/main/logo_1713400676_8420.png" alt=""></a>
+
+        <a href="/">Главная</a>
+        <a href="/sport">Спорт</a>
+        <a href="/sport/live">Лайв </a>
+        <a href="/casino">Казино</a>
+        <a href="/result">Спортивные результаты</a>
+        <a href="/sport/history" class="for_auth">Мои ставки</a>
+        <a href="/account" class="for_auth">Личный кабинет</a>
+        <a href="/admin" class="for_auth for_admin">Админ‑панель</a>
+        <a href="/"><img src="/img/jetx.png" alt="" style="height: 29px;"></a>
+
+        <!--
+        <a href="/shuttle" class="for_auth custom_shuttle">
+            <div><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="25" height="25" x="0" y="0" viewBox="0 0 43.349 43.349" style="enable-background:new 0 0 512 512" xml:space="preserve" fill-rule="evenodd"><g><path d="m31.816 41.833.27 1.516h-3.739l.28-1.516zM32.387 35.155v5.889h-4.33v-5.889zM25.543 36.993l.395 2.119h-3.853V36.92h3.437c0 .02.01.041.021.072zM21.285 36.92v2.192h-3.853l.395-2.119c.01-.03.02-.062.02-.072zM14.732 41.833l.27 1.516h-3.739l.28-1.516zM15.303 35.155v5.889H10.972v-5.889zM33.675 34.366h-6.678c-.093-1.236-.55-1.942-.986-2.337l-.333-9.534 1.548 4.507c.01.021.01.031.02.052.291.883.935 1.568.956 1.6l.02.02 2.16 1.963c.011.01.032.021.043.031.706.489 1.547 1.31 2.087 1.86.301.311.509.54.55.581.322.415.52.914.613 1.257zM17.63 22.537l-.281 9.492c-.363.332-.768.914-.935 1.88-.02.145-.041.301-.052.457H9.674c.094-.343.28-.841.623-1.257.031-.041.24-.26.54-.571l.01-.01c.54-.55 1.372-1.371 2.078-1.86.01-.01.03-.02.041-.03l2.16-1.964.021-.02c.032-.031.634-.675.925-1.506.02-.052.03-.094.052-.146z"></path><path d="M15.303 26.348v.644c-.239.582-.644 1.039-.706 1.111l-2.119 1.932c-.498.343-1.028.82-1.495 1.267v-12.4l-.104-3.064c-.062-1.86.852-2.94 2.015-4.31l.197-.229c1.257 1.548 1.994 2.628 2.223 4.58v10.47zM30.476 11.518c1.164 1.37 2.088 2.45 2.015 4.31l-.104 3.063v12.4c-.467-.446-1.007-.924-1.495-1.266l-2.13-1.932c-.062-.073-.477-.55-.716-1.143.01-.03.01-.051.01-.083V15.87c.229-1.952.956-3.032 2.223-4.58.062.083.125.156.197.229zM26.26 36.131h-4.175v-3.51a.405.405 0 0 0-.81 0v3.51h-4.186c0-.062.01-.124.01-.197.011-.29.032-.644.032-1.08v-.104c0-.104.01-.197.01-.29.01-.146.031-.302.052-.437.146-.862.51-1.298.79-1.516a.43.43 0 0 0 .155-.301l.353-12.266V19.847l.198-3.417c.166-1.682 1.194-4.538 2.99-5.857 1.84 1.35 2.93 4.258 2.981 5.836l.125 3.427v.042l.436 12.328c0 .114.063.228.156.3.374.292.83.915.841 2.223v.104c0 .426.021.78.031 1.06 0 .103.01.176.01.238zm-3.157-14.436V17.79a.405.405 0 0 0-.81 0v3.905c0 .229.186.405.405.405a.393.393 0 0 0 .405-.405zm-.021-7.664a.403.403 0 0 0-.197-.53 2.915 2.915 0 0 0-2.41 0c-.197.094-.29.322-.197.53.093.197.332.28.53.197.53-.25 1.225-.25 1.755 0a.49.49 0 0 0 .166.042.448.448 0 0 0 .353-.24zm-2.015 7.664V17.79a.406.406 0 0 0-.81 0v3.905c0 .229.187.405.405.405a.399.399 0 0 0 .405-.405z"></path><path d="M27.257 15.848v8.849l-1.693-4.913-.114-3.385c-.063-1.86-1.34-5.193-3.562-6.626a.395.395 0 0 0-.426 0c-2.264 1.464-3.386 4.819-3.563 6.595v.02l-.187 3.396-1.62 4.86V7.915c.55-3.365 2.482-5.245 5.588-7.914 3.105 2.669 5.037 4.549 5.587 7.914v7.934z"></path></g></svg></div>
+            <div>Shuttle</span></div>
+        </a>
+        <a href="/game" class="for_auth custom_jet">
+            <div><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="25" height="25" x="0" y="0" viewBox="0 0 599.826 599.826" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path d="m514.805 403.155-146.22-130.804-8.409-90.627-32.233-31.767C327.475 27.562 299.913 0 299.913 0s-27.562 27.562-28.028 149.957l-32.235 31.767-8.409 90.627-146.22 130.804v57.095l123.329 35.401-52.789 45.78v43.912l55.591 14.482 56.058-46.248v-.134h11.66l9.462 9.462h23.158l9.462-9.462h11.66v.134l56.058 46.248 55.591-14.482v-43.912l-52.789-45.78 123.33-35.401v-57.095h.003z"></path></g></svg></div>
+            <div>Jet<span>X</span></div>
+        </a>
+        <a href="/poker" class="for_auth custom_poker">
+            <div><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="25" height="25" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path d="M479.001 34.656 285.933.613c-21.715-3.829-42.423 10.671-46.252 32.386l-1.827 10.363c27.921 3.44 51.51 23.554 58.937 51.269l11.799 44.035a35.815 35.815 0 0 1 20.537-2.414c13.677 2.412 24.17 12.255 28.079 24.642 7.91-10.303 21.137-15.964 34.814-13.552 19.575 3.452 32.646 22.119 29.194 41.694-7.5 42.534-53.143 76.721-74.804 90.782l33.071 123.423a69.601 69.601 0 0 1 2.349 19.79l27.824 4.906c21.715 3.829 42.423-10.671 46.252-32.386l55.48-314.641c3.83-21.717-10.67-42.425-32.385-46.254z"></path><path d="M267.867 102.382c-4.78-17.838-20.911-29.603-38.54-29.602-3.42 0-6.898.443-10.359 1.37L29.602 124.89c-21.299 5.707-33.939 27.6-28.232 48.899l82.691 308.609c4.78 17.838 20.911 29.602 38.54 29.602 3.42 0 6.898-.443 10.358-1.37l189.366-50.741c21.299-5.707 33.939-27.6 28.232-48.899zM120.51 313.333a10.603 10.603 0 0 1-3.042-11.353l28.956-85.738c2.422-7.172 11.364-9.568 17.048-4.568l67.946 59.774a10.603 10.603 0 0 1 3.042 11.353l-28.956 85.738c-2.422 7.172-11.364 9.569-17.048 4.568z"></path></g></svg></div>
+            <div>Poker</div>
+        </a>
+        -->
+
+        <div class="space"></div>
+
+                    <a href="#auth" class="modal_link menu_btn_auth">Войти</a>
+            <a href="#reg" class="modal_link menu_btn_reg">
+                <span><svg data-v-63265091="" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 384 512" aria-hidden="true" role="img" class="icon icon-plus sm inline" inline="" icon="plus"><path d="M368 224H224V80c0-8.84-7.16-16-16-16h-32c-8.84 0-16 7.16-16 16v144H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h144v144c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16V288h144c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"></path></svg></span>
+                Регистрация            </a>
+        
+            </div>
+
+
+
+            <div class="mobile_menu mobile">
+            <div class="mobile_menu_btns">
+                <a href="#auth" class="modal_link menu_btn_auth">Войти</a>
+                <a href="#reg" class="modal_link menu_btn_reg">
+                    <span><svg data-v-63265091="" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 384 512" aria-hidden="true" role="img" class="icon icon-plus sm inline" inline="" icon="plus"><path d="M368 224H224V80c0-8.84-7.16-16-16-16h-32c-8.84 0-16 7.16-16 16v144H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h144v144c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16V288h144c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"></path></svg></span>
+                    Регистрация                </a>
+            </div>
+        </div>
+       
+
+
+    <div class="foot_menu mobile">
+        <div>
+            <a href="/sport/line" class="core_sport_line">
+                <div><img src="/img/line.svg" alt=""></div>
+                <div>Спорт</div>
+            </a>
+        </div>
+        <div>
+            <a href="/sport/live" class="core_sport_live">
+                <div><img src="/img/live.svg" alt=""></div>
+                <div>Лайв </div>
+            </a>
+        </div>
+        <div>
+            <a href="#" class="core_cupon foot_menu_cupon">
+                <div></div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 13 18" aria-hidden="true" role="img" icon="navigation/ticket" square=""><path d="M12.316 13.263V16a2 2 0 01-2 2H8.479a2.37 2.37 0 00-4.642 0H2a2 2 0 01-2-2v-2.737h2.368a.474.474 0 000-.947H0V2a2 2 0 012-2h1.837a2.37 2.37 0 004.642 0h1.837a2 2 0 012 2v10.316H9.947a.474.474 0 000 .947h2.369zm-8.053-.947a.474.474 0 100 .947h3.79a.474.474 0 000-.947h-3.79z"></path></svg>
+            </a>
+        </div>
+        <div>
+            <a href="/sport/history" class="for_auth">
+                <div><img src="/img/bets.svg" alt=""></div>
+                <div>Мои ставки</div>
+            </a>
+        </div>
+        <div>
+            <a href="#side_menu" class="for_auth sidebar">
+                <div><img src="/img/user.svg" alt=""></div>
+                <div>Аккаунт</div>
+            </a>
+        </div>
+    </div>
+
+
+
+    <side id="side_menu" data-side="right">
+        <div>
+            <!--<div style="height:25px;"></div>-->
+
+                            <div class="side_menu_btns">
+                    <a href="#auth" class="modal_link menu_btn_auth">Войти</a>
+                    <a href="#reg" class="modal_link menu_btn_reg">
+                        <span><svg data-v-63265091="" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 384 512" aria-hidden="true" role="img" class="icon icon-plus sm inline" inline="" icon="plus"><path d="M368 224H224V80c0-8.84-7.16-16-16-16h-32c-8.84 0-16 7.16-16 16v144H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h144v144c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16V288h144c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"></path></svg></span>
+                        Регистрация                    </a>
+                </div>
+            
+            
+            <div class="side_menu_links">
+                <a href="/">Главная</a>
+                <div class="middle_seporator"></div>
+                <a href="/sport" class="core_sport_line">Спорт</a>
+                <div class="middle_seporator"></div>
+                <a href="/sport/live" class="core_sport_live">Лайв </a>
+                <div class="middle_seporator"></div>
+                <a href="/account" class="for_auth">Личный кабинет</a>
+                <div class="middle_seporator"></div>
+                <a href="/admin" class="for_auth for_admin">Админ‑панель</a>
+                <div class="middle_seporator"></div>
+                <a href="/casino">Казино</a>
+                <div class="middle_seporator"></div>
+                <a href="/result">Спортивные результаты</a>
+                <div class="middle_seporator"></div>
+                <a href="/"><img src="/img/jetx.png" alt="" style="height: 25px;"></a>
+
+                <div class="middle_seporator"></div><a href="/rules-sport">Правила по отдельным видам спорта</a><div class="middle_seporator"></div><a href="/return-policy">Условия возврата</a><div class="middle_seporator"></div><a href="/risk-notification">Уведомление о рисках</a><div class="middle_seporator"></div><a href="/kyc">KYC & AML</a><div class="middle_seporator"></div><a href="/terms">Правила и условия</a><div class="middle_seporator"></div><a href="/privacy-policy">Политика конфиденциальности</a>            </div>
+        </div>
+    </side>
+</div>

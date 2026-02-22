@@ -1,0 +1,21 @@
+{
+  "name": "crystalbet",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "cd frontend && npx vite --host 0.0.0.0 --port 3000",
+    "build": "cd frontend && npx vite build",
+    "preview": "cd frontend && npx vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.4.0",
+    "vue-router": "^4.2.0",
+    "@neondatabase/serverless": "^0.10.4",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.0",
+    "vite": "^5.0.0"
+  }
+}
